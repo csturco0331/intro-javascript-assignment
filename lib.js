@@ -1,3 +1,5 @@
+'use strict'
+
 function employee (name, manager) {
   return {
     name: name,
@@ -14,10 +16,26 @@ function employee (name, manager) {
  * @param employees the employees to choose from
  */
 function underlings (manager, employees) {
-  // TODO
+  const result = []
+  for (let elem of employees) {
+    if (elem.manager === manager) {
+      result.push(elem)
+    }
+  }
+  return result
+}
+
+function names (employees) {
+  const result = []
+  for (let elem of employees) {
+    result.push(elem.name)
+  }
+  return result
 }
 
 module.exports = {
   employee,
-  underlings
+  underlings,
+  names
+
 }
